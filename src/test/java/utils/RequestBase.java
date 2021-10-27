@@ -1,11 +1,13 @@
 package utils;
 
+import com.google.gson.Gson;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
 
 import java.util.List;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
@@ -50,6 +52,11 @@ public class RequestBase {
                 .headers(header)
                 .when()
                 .get(path);
+    }
+
+    public String buildJson(Map<String, Object> body){
+        Gson gson = new Gson();
+        return gson.toJson(body);
     }
 
 }
