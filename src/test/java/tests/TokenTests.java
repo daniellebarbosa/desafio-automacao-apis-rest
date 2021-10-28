@@ -3,6 +3,7 @@ package tests;
 import io.restassured.response.Response;
 import org.junit.Test;
 import utils.BasePage;
+import utils.Constants;
 import utils.RequestBase;
 
 import java.util.HashMap;
@@ -15,14 +16,14 @@ public class TokenTests extends BasePage {
 
     @Test
     public void generateToken(){
-        Map<String, Object> body = new HashMap<String, Object>();
+        Map<String, Object> body = new HashMap<>();
         body.put("grant_type", "refresh_token");
         body.put("refresh_token", "efbc337e998bb77dd8f03cdd3e0c54f3f402ac82");
-        body.put("client_id", "805ca6f3eca4ce9");
-        body.put("client_secret", "0c98ddaa97e0ff17449bb9a79f0ee2adfcbd68f6");
+        body.put("client_id", Constants.CLIENTID);
+        body.put("client_secret", Constants.CLIENTSECRET);
 
 
-        Response response = requestBase.executePostWithBody("/oauth2/token", requestBase.buildJson(body));
+        Response response = requestBase.executePostWithBody(Constants.GETTOKEN_ENDPOINT, requestBase.buildJson(body));
         response.then()
                 .assertThat().body("account_username", equalTo("danigb"));
 
