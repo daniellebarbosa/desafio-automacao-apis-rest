@@ -2,7 +2,7 @@ package tests;
 
 import io.restassured.http.Header;
 import io.restassured.response.Response;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import utils.BasePage;
 import utils.Constants;
 import utils.RequestBase;
@@ -23,7 +23,7 @@ public class AlbumTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.GETCOMMENTSBYUSER_ENDPOINT.replace("{albumHash}", "gdewnf");
+        String path = Constants.GETALBUM_ENDPOINT.replace("{{albumHash}}", "gdewnf");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -37,14 +37,23 @@ public class AlbumTests extends BasePage {
         headerList.add(header);
 
         Map<String, Object> body = new HashMap<>();
+        body.put("ids", "140ZdGx");
         body.put("title", "Dani");
         body.put("description", "Album da Dani");
 
-        String pathPost = Constants.CREATEALBUM_ENDPOINT;
+        String path = Constants.CREATEALBUM_ENDPOINT;
 
-        Response response = requestBase.executePostWithBody(pathPost, headerList, requestBase.buildJson(body));
-        response.then()
-                .statusCode(403);
+        Response response = requestBase.executePostWithBody(path, headerList, requestBase.buildJson(body));
+        if(response.getStatusCode() == 403){
+            response.then()
+                    .statusCode(403);
+        }
+        if(response.getStatusCode() == 429){
+            response.then()
+                    .statusCode(429)
+                    .assertThat().body("data.error", equalTo("Album creation limit exceeded for 1 hour period"));
+        }
+
     }    
     
     @Test
@@ -53,7 +62,7 @@ public class AlbumTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String pathPost = Constants.DELTEALBUM_ENDPOINT.replace("{albumHash}", "gdewnf");
+        String pathPost = Constants.DELTEALBUM_ENDPOINT.replace("{{albumHash}}", "gdewnf");
 
         Response response = requestBase.executeDelete(pathPost, headerList);
         response.then()
@@ -66,11 +75,11 @@ public class AlbumTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String pathPost = Constants.FAVORITEALBUM_ENDPOIT.replace("{albumHash}", "gdewnf");
+        String pathPost = Constants.FAVORITEALBUM_ENDPOIT.replace("{{albumHash}}", "gdewnf");
 
         Response response = requestBase.executePost(pathPost, headerList);
         response.then()
-                .statusCode(403);
+                .statusCode(404);
     }  
     
     @Test
@@ -79,7 +88,7 @@ public class AlbumTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.GETALBUMCOUNT_ENDPOINT.replace("{username}", "danigb");
+        String path = Constants.GETALBUMCOUNT_ENDPOINT.replace("{{username}}", "danigb");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -92,7 +101,7 @@ public class AlbumTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.GETALBUMCOUNT_ENDPOINT.replace("{username}", "albumnotexists");
+        String path = Constants.GETALBUMCOUNT_ENDPOINT.replace("{{username}}", "albumnotexists");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()

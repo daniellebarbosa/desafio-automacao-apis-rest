@@ -2,7 +2,7 @@ package tests;
 
 import io.restassured.http.Header;
 import io.restassured.response.Response;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import utils.BasePage;
 import utils.Constants;
 import utils.RequestBase;
@@ -23,7 +23,7 @@ public class CommentsTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.GETCOMMENTSBYUSER_ENDPOINT.replace("{username}", "danigb");
+        String path = Constants.GETCOMMENTSBYUSER_ENDPOINT.replace("{{username}}", "danigb");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -55,7 +55,7 @@ public class CommentsTests extends BasePage {
         headerList.remove(headerPost);
         headerList.add(headerGet);
 
-        String pathGet = Constants.GETCOMMENT_ENDPOINT.replace("{id}", id.toString());
+        String pathGet = Constants.GETCOMMENT_ENDPOINT.replace("{{id}}", id.toString());
         Response responseGet = requestBase.executeGet(pathGet,headerList);
         responseGet.then()
                 .statusCode(200);
@@ -83,7 +83,7 @@ public class CommentsTests extends BasePage {
         headerList.remove(headerPostDelete);
         headerList.add(headerGet);
 
-        String pathGet = Constants.GETCOMMENT_ENDPOINT.replace("{id}", id.toString());
+        String pathGet = Constants.GETCOMMENT_ENDPOINT.replace("{{id}}", id.toString());
         Response responseGet = requestBase.executeGet(pathGet,headerList);
         responseGet.then()
                 .statusCode(200);
@@ -91,7 +91,7 @@ public class CommentsTests extends BasePage {
         headerList.remove(headerGet);
         headerList.add(headerPostDelete);
         
-        String pathDelete = Constants.DELETECOMMENT_ENDPOINT.replace("{commentId}", id.toString());
+        String pathDelete = Constants.DELETECOMMENT_ENDPOINT.replace("{{commentId}}", id.toString());
         Response responseDelete = requestBase.executeDelete(pathDelete,headerList);
         responseDelete.then()
                 .statusCode(200);
@@ -103,7 +103,7 @@ public class CommentsTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.GETREPLIES_ENDPOINT.replace("{commentId}", "15420");
+        String path = Constants.GETREPLIES_ENDPOINT.replace("{{commentId}}", "15420");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -117,7 +117,7 @@ public class CommentsTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.GETREPLIES_ENDPOINT.replace("{commentId}", "1542trs0");
+        String path = Constants.GETREPLIES_ENDPOINT.replace("{{commentId}}", "1542trs0");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -134,7 +134,7 @@ public class CommentsTests extends BasePage {
         body.put("image_id", "IkPqj");
         body.put("comment", "I'm a pug!");
 
-        String pathPost = Constants.POSTCREATEREPLY_ENDPOINT.replace("{commentId}", "15420");
+        String pathPost = Constants.POSTCREATEREPLY_ENDPOINT.replace("{{commentId}}", "15420");
 
         Response response = requestBase.executePostWithBody(pathPost, headerList, requestBase.buildJson(body));
         response.then()
@@ -147,7 +147,7 @@ public class CommentsTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.GETCOMMENTS_ENDPOINT.replace("{username}", "danigb").replace("{commentId}", "15420");
+        String path = Constants.GETCOMMENTS_ENDPOINT.replace("{{username}}", "danigb").replace("{{commentId}}", "15420");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -161,7 +161,7 @@ public class CommentsTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.GETCOMMENTS_ENDPOINT.replace("{username}", "danigb").replace("{commentId}", "15654523213");
+        String path = Constants.GETCOMMENTS_ENDPOINT.replace("{{username}}", "danigb").replace("{{commentId}}", "15654523213");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -175,7 +175,7 @@ public class CommentsTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.GETCOMMENTS_ENDPOINT.replace("{username}", "danigb");
+        String path = Constants.GETCOMMENTSCOUNT_ENDPOINT.replace("{{username}}", "danigb");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()

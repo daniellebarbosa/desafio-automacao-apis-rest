@@ -2,7 +2,7 @@ package tests;
 
 import io.restassured.http.Header;
 import io.restassured.response.Response;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import utils.BasePage;
 import utils.Constants;
 import utils.RequestBase;
@@ -23,7 +23,7 @@ public class BlockTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String pathPost = Constants.CREATEBLOCK_ENDPOINT.replace("{username}", "robertta");
+        String pathPost = Constants.CREATEBLOCK_ENDPOINT.replace("{{username}}", "robertta");
 
         Response response = requestBase.executePost(pathPost, headerList);
         response.then()
@@ -35,7 +35,7 @@ public class BlockTests extends BasePage {
         responseGet.then()
                 .statusCode(200);
         
-        String pathDelete = Constants.DELTEBLOCK_ENDPOINT.replace("{username}", "robertta");
+        String pathDelete = Constants.DELTEBLOCK_ENDPOINT.replace("{{username}}", "robertta");
 
         Response responseDelete = requestBase.executeDelete(pathDelete, headerList);
         responseDelete.then()
@@ -48,7 +48,7 @@ public class BlockTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
         
-        String path = Constants.VERIFYBLOCK_ENDPOINT.replace("{username}", "danigb");
+        String path = Constants.VERIFYBLOCK_ENDPOINT.replace("{{username}}", "danigb");
 
         Response responseGet = requestBase.executeGet(path, headerList);
         responseGet.then()
@@ -62,13 +62,13 @@ public class BlockTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String pathPost = Constants.CREATEBLOCK_ENDPOINT.replace("{username}", "joseph");
+        String pathPost = Constants.CREATEBLOCK_ENDPOINT.replace("{{username}}", "joseph");
 
         Response response = requestBase.executePost(pathPost, headerList);
         response.then()
                 .statusCode(201);       
         
-        String pathDelete = Constants.DELTEBLOCK_ENDPOINT.replace("{username}", "joseph");
+        String pathDelete = Constants.DELTEBLOCK_ENDPOINT.replace("{{username}}", "joseph");
 
         Response responseDelete = requestBase.executeDelete(pathDelete, headerList);
         responseDelete.then()

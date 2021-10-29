@@ -5,9 +5,16 @@
     <listener class-name="core.ListenerClass"></listener>
     <listener class-name="core.AnnotationTransformer"></listener>
   </listeners>
-  <test thread-count="5" name="tests">
+  <test name="tests">
     <classes>
       <class name="tests.AccountTests"/>
+      <class name="tests.AlbumTests"/>
+      <class name="tests.BlockTests"/>
+      <class name="tests.CommentsTests"/>
+      <class name="tests.TagTests"/>
+      <class name="tests.TokenTests"/>
+      <class name="tests.GalleryTests"/>
+      <class name="tests.AccountSettingsTests"></class>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

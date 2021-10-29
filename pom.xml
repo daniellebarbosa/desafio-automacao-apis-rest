@@ -25,6 +25,8 @@
                             <suiteXmlFiles>
                                 <suiteXmlFile>testng-dev.xml</suiteXmlFile>
                             </suiteXmlFiles>
+                            <parallel>methods</parallel>
+                            <threadCount>2</threadCount>
                         </configuration>
                     </plugin>
                 </plugins>

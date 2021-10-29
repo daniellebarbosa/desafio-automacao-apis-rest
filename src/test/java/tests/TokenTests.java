@@ -1,7 +1,8 @@
 package tests;
 
 import io.restassured.response.Response;
-import org.junit.Test;
+
+import org.testng.annotations.Test;
 import utils.BasePage;
 import utils.Constants;
 import utils.RequestBase;

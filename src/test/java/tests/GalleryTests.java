@@ -2,7 +2,7 @@ package tests;
 
 import io.restassured.http.Header;
 import io.restassured.response.Response;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import utils.BasePage;
 import utils.Constants;
 import utils.RequestBase;
@@ -36,7 +36,7 @@ public class GalleryTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.GALLERYTAGS_ENDPOINT.replace("{tagName}", "tagnotexists");
+        String path = Constants.GALLERYTAGINFO_ENDPOINT.replace("{{tagName}}", "tagnotexists");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -49,7 +49,7 @@ public class GalleryTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.TAGSGALLERY_ENDPOINT.replace("{galleryHash}", "140ZdGx");
+        String path = Constants.TAGSGALLERY_ENDPOINT.replace("{{galleryHash}}", "140ZdGx");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -62,7 +62,7 @@ public class GalleryTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.TAGSGALLERY_ENDPOINT.replace("{galleryHash}", "140ZdGx");
+        String path = Constants.GALLERYALBUM_ENDPOINT.replace("{{galleryHash}}", "140ZdGx");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -75,7 +75,7 @@ public class GalleryTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.TAGSGALLERY_ENDPOINT.replace("{galleryHash}", "140ZdGxdejhfhew");
+        String path = Constants.GALLERYALBUM_ENDPOINT.replace("{{galleryHash}}", "140ZdGxdejhfhew");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -91,7 +91,7 @@ public class GalleryTests extends BasePage {
         Map<String, Object> body = new HashMap<>();
         body.put("reason", "1");
 
-        String path = Constants.IMAGEREPORTING_ENDPOINT.replace("{galleryHash}", "140ZdGx");
+        String path = Constants.IMAGEREPORTING_ENDPOINT.replace("{{galleryHash}}", "140ZdGx");
 
         Response response = requestBase.executePostWithBody(path, headerList, requestBase.buildJson(body));
         response.then()
@@ -100,29 +100,12 @@ public class GalleryTests extends BasePage {
     }
 
     @Test
-    public void imageReportingNotExists(){
-    	Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
-        List<Header> headerList = new ArrayList<>();
-        headerList.add(header);
-
-        Map<String, Object> body = new HashMap<>();
-        body.put("reason", "1");
-
-        String path = Constants.IMAGEREPORTING_ENDPOINT.replace("{galleryHash}", "140ZdGxdejhfhew");
-
-        Response response = requestBase.executePostWithBody(path, headerList, requestBase.buildJson(body));
-        response.then()
-                .statusCode(200)
-                .assertThat().body("data", equalTo(false));
-    }
-
-    @Test
     public void getImageVotes(){
     	Header header = new Header("Authorization", Constants.CLIENTID_HEADER);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.IMAGEVOTES_ENDPOINT.replace("{galleryHash}", "140ZdGx");
+        String path = Constants.IMAGEVOTES_ENDPOINT.replace("{{galleryHash}}", "140ZdGx");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -135,7 +118,7 @@ public class GalleryTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.IMAGEVOTES_ENDPOINT.replace("{galleryHash}", "140ZdGxdejhfhew");
+        String path = Constants.IMAGEVOTES_ENDPOINT.replace("{{galleryHash}}", "140ZdGxdejhfhew");
 
         Response response = requestBase.executeGet(path, headerList);
         response.then()
@@ -143,20 +126,20 @@ public class GalleryTests extends BasePage {
     }
 
     @Test
-    public void createCommentImage(){
+    public void createCommentImageBadRequest(){
     	Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
         Map<String, Object> body = new HashMap<>();
-        body.put("comment", "Good");
+        body.put("comment", "Good!");
 
-        String path = Constants.CREATEIMAGECOMMENT_ENDPOINT.replace("{galleryHash}", "LAj3d44");
+        String path = Constants.CREATEIMAGECOMMENT_ENDPOINT.replace("{{galleryHash}}", "LAj3d44");
 
         Response response = requestBase.executePostWithBody(path, headerList, requestBase.buildJson(body));
         response.then()
-                .statusCode(200)
-                .assertThat().body("success", equalTo(true));
+                .statusCode(400)
+                .assertThat().body("data.error", equalTo("The parameter image_id is required."));
     }
 
     @Test
@@ -168,7 +151,7 @@ public class GalleryTests extends BasePage {
         Map<String, Object> body = new HashMap<>();
         body.put("comment", "Good");
 
-        String path = Constants.CREATEIMAGECOMMENT_ENDPOINT.replace("{galleryHash}", "notexists");
+        String path = Constants.CREATEIMAGECOMMENT_ENDPOINT.replace("{{galleryHash}}", "notexists");
 
         Response response = requestBase.executePostWithBody(path, headerList, requestBase.buildJson(body));
         response.then()
@@ -185,7 +168,7 @@ public class GalleryTests extends BasePage {
         body.put("title", "Heart");
         body.put("description", "This is an image of a heart outline.");
 
-        String path = Constants.UPDATEIMAGEINFO_ENDPOINT.replace("{imageHash}", "IkPqj");
+        String path = Constants.UPDATEIMAGEINFO_ENDPOINT.replace("{{imageHash}}", "IkPqj");
 
         Response response = requestBase.executePostWithBody(path, headerList, requestBase.buildJson(body));
         response.then()
@@ -198,7 +181,7 @@ public class GalleryTests extends BasePage {
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
-        String path = Constants.FAVORITEIMAGE_ENDPOINT.replace("{imageHash}", "IkPqj");
+        String path = Constants.FAVORITEIMAGE_ENDPOINT.replace("{{imageHash}}", "IkPqj");
 
         Response response = requestBase.executePost(path, headerList);
         response.then()

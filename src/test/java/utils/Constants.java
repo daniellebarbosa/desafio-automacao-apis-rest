@@ -19,21 +19,21 @@ public class Constants {
     public static final String CLIENTSECRET = "0c98ddaa97e0ff17449bb9a79f0ee2adfcbd68f6";
 
     //Endpoints
-    public static final String GETACCOUNT_ENDPOINT = "/3/account/{username}";
-    public static final String GETCOMMENTSBYUSER_ENDPOINT = "/3/account/{username}/comments";
+    public static final String GETACCOUNT_ENDPOINT = "/3/account/{{username}}";
+    public static final String GETCOMMENTSBYUSER_ENDPOINT = "/3/account/{{username}}/comments";
     public static final String POSTCREATECOMMENT_ENDPOINT = "/3/comment";
     public static final String DELETECOMMENT_ENDPOINT = "/3/comment/{{commentId}}";
     public static final String GETREPLIES_ENDPOINT = "/3/comment/{{commentId}}/replies";
     public static final String POSTCREATEREPLY_ENDPOINT = "/3/comment/{{commentId}}";
-    public static final String GETCOMMENT_ENDPOINT = "/3/comment/{id}";
+    public static final String GETCOMMENT_ENDPOINT = "/3/comment/{{id}}";
     public static final String GETTOKEN_ENDPOINT = "oauth2/token";
     public static final String GETALBUM_ENDPOINT = "/3/album/{{albumHash}}";
     public static final String CREATEALBUM_ENDPOINT = "/3/album";
     public static final String DELTEALBUM_ENDPOINT = "/3/album/{{albumHash}}";
     public static final String FAVORITEALBUM_ENDPOIT = "/3/album/{{albumHash}}/favorite";
-    public static final String CREATEBLOCK_ENDPOINT = "/v1/{{username}}/block";
+    public static final String CREATEBLOCK_ENDPOINT = "/account/v1/{{username}}/block";
     public static final String ACCOUNTBLOCK_ENDPOINT = "/3/account/me/block";
-    public static final String DELTEBLOCK_ENDPOINT = "/v1/{{username}}/block";
+    public static final String DELTEBLOCK_ENDPOINT = "/account/v1/{{username}}/block";
     public static final String VERIFYBLOCK_ENDPOINT = "/account/v1/{{username}}/block";
     public static final String GETACCOUNTIMAGE_ENDPOINT = "/3/account/me/images";
     public static final String GETAVATARACCOUNT_ENDPOINT = "/3/account/{{username}}/avatar";
