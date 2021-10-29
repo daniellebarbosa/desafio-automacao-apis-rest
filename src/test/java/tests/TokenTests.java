@@ -22,7 +22,6 @@ public class TokenTests extends BasePage {
         body.put("client_id", Constants.CLIENTID);
         body.put("client_secret", Constants.CLIENTSECRET);
 
-
         Response response = requestBase.executePostWithBody(Constants.GETTOKEN_ENDPOINT, requestBase.buildJson(body));
         response.then()
                 .assertThat().body("account_username", equalTo("danigb"));
