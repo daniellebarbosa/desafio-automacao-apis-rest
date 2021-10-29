@@ -53,6 +53,16 @@ public class RequestBase {
                 .when()
                 .get(path);
     }
+    
+    public Response executeDelete(String path, List<Header> headers){
+        Headers header = new Headers(headers);
+
+        return given()
+                .contentType(ContentType.JSON)
+                .headers(header)
+                .when()
+                .delete(path);
+    }
 
     public String buildJson(Map<String, Object> body){
         Gson gson = new Gson();
