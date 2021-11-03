@@ -19,7 +19,7 @@ public class CommentsTests extends BasePage {
 
     @Test
     public void getAllCommentsByUser(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -35,7 +35,7 @@ public class CommentsTests extends BasePage {
 
     @Test
     public void createComment(){
-        Header headerPost = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header headerPost = new Header("Authorization", token);
         Header headerGet = new Header("Authorization", Constants.CLIENTID_HEADER);
         List<Header> headerList = new ArrayList<>();
         headerList.add(headerPost);
@@ -63,7 +63,7 @@ public class CommentsTests extends BasePage {
     
     @Test
     public void deleteComment(){
-        Header headerPostDelete = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header headerPostDelete = new Header("Authorization", token);
         Header headerGet = new Header("Authorization", Constants.CLIENTID_HEADER);
         List<Header> headerList = new ArrayList<>();
         headerList.add(headerPostDelete);
@@ -126,7 +126,7 @@ public class CommentsTests extends BasePage {
     
     @Test
     public void createReply(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 

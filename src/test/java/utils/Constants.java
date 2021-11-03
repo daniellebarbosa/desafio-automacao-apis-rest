@@ -8,8 +8,7 @@ public class Constants {
     public static final String TESTDATASHEETNAME = "getAccountExists";
 
     //Base Page
-    public static final String BASE_URL = "https://api.imgur.com";
-    public static final String PATH_SHEET = "src//test//resources//TestData.xls";
+    public static final String BASE_URI = "https://api.imgur.com";
     public static final String PATH_SHEET_TESTE = "src//test//resources//dataDrivenFinal.xlsx";
 
 
@@ -17,6 +16,7 @@ public class Constants {
     public static final String CLIENTID_HEADER = "Client-ID 805ca6f3eca4ce9";
     public static final String CLIENTID = "805ca6f3eca4ce9";
     public static final String CLIENTSECRET = "0c98ddaa97e0ff17449bb9a79f0ee2adfcbd68f6";
+    public static final String GRANT_TYPE = "refresh_token";
 
     //Endpoints
     public static final String GETACCOUNT_ENDPOINT = "/3/account/{{username}}";
@@ -26,7 +26,7 @@ public class Constants {
     public static final String GETREPLIES_ENDPOINT = "/3/comment/{{commentId}}/replies";
     public static final String POSTCREATEREPLY_ENDPOINT = "/3/comment/{{commentId}}";
     public static final String GETCOMMENT_ENDPOINT = "/3/comment/{{id}}";
-    public static final String GETTOKEN_ENDPOINT = "oauth2/token";
+    public static final String GETTOKEN_ENDPOINT = "/oauth2/token";
     public static final String GETALBUM_ENDPOINT = "/3/album/{{albumHash}}";
     public static final String CREATEALBUM_ENDPOINT = "/3/album";
     public static final String DELTEALBUM_ENDPOINT = "/3/album/{{albumHash}}";

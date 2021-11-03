@@ -17,7 +17,7 @@ public class TagTests extends BasePage {
 
     @Test
     public void followAndUnfollowTag(){
-    	Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+    	Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -34,7 +34,7 @@ public class TagTests extends BasePage {
     
     @Test
     public void followTagNotFound(){
-    	Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+    	Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -48,7 +48,7 @@ public class TagTests extends BasePage {
 
     @Test
     public void unfollowTagNotFound(){
-    	Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+    	Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -61,7 +61,7 @@ public class TagTests extends BasePage {
 
     @Test
     public void followTagAlreadyFollow(){
-    	Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+    	Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -75,7 +75,7 @@ public class TagTests extends BasePage {
     
     @Test
     public void unfollowTagNotFollow(){
-    	Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+    	Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 

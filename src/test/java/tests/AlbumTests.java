@@ -32,7 +32,7 @@ public class AlbumTests extends BasePage {
     
     @Test
     public void createAlbumDenied(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -58,7 +58,7 @@ public class AlbumTests extends BasePage {
     
     @Test
     public void deleteAlbumNotExists(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -71,7 +71,7 @@ public class AlbumTests extends BasePage {
     
     @Test
     public void favoriteAlbumNotExists(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 

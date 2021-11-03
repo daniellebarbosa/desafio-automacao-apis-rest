@@ -19,7 +19,7 @@ public class AccountSettingsTests extends BasePage {
 
     @Test
     public void accountImages(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -33,7 +33,7 @@ public class AccountSettingsTests extends BasePage {
 
     @Test
     public void accountAvatar(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -47,7 +47,7 @@ public class AccountSettingsTests extends BasePage {
 
     @Test
     public void avatarAvailable(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -61,7 +61,7 @@ public class AccountSettingsTests extends BasePage {
 
     @Test
     public void getSettings(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -89,7 +89,7 @@ public class AccountSettingsTests extends BasePage {
 
     @Test
     public void changeSettings(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -105,7 +105,7 @@ public class AccountSettingsTests extends BasePage {
 
     @Test
     public void accountImageProfile(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -119,7 +119,7 @@ public class AccountSettingsTests extends BasePage {
 
     @Test
     public void accountImageProfileNotExists(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -132,7 +132,7 @@ public class AccountSettingsTests extends BasePage {
 
     @Test
     public void accountImageProfileDenied(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -146,7 +146,7 @@ public class AccountSettingsTests extends BasePage {
 
     @Test
     public void sendVerificationEmail(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -159,7 +159,7 @@ public class AccountSettingsTests extends BasePage {
 
     @Test
     public void verifyEmail(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -173,7 +173,7 @@ public class AccountSettingsTests extends BasePage {
 
     @Test
     public void accountImage(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -186,7 +186,7 @@ public class AccountSettingsTests extends BasePage {
 
     @Test
     public void accountImageNotExists(){
-        Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+        Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 

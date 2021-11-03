@@ -98,9 +98,6 @@ public class TestUtils {
 			temp=String.valueOf(cell.getErrorCellValue());
 		}
 		return temp;
-
-
-
 	}
 
 	public static String getCellContent(String sheetname,int rownum,String columnname) {

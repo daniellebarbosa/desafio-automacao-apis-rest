@@ -84,7 +84,7 @@ public class GalleryTests extends BasePage {
 
     @Test
     public void imageReporting(){
-    	Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+    	Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -127,7 +127,7 @@ public class GalleryTests extends BasePage {
 
     @Test
     public void createCommentImageBadRequest(){
-    	Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+    	Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -144,7 +144,7 @@ public class GalleryTests extends BasePage {
 
     @Test
     public void createCommentImageNotExists(){
-    	Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+    	Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -160,7 +160,7 @@ public class GalleryTests extends BasePage {
     
     @Test
     public void updateImageInfoDenied(){
-    	Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+    	Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 
@@ -177,7 +177,7 @@ public class GalleryTests extends BasePage {
     
     @Test
     public void unfavoritedImage(){
-    	Header header = new Header("Authorization", "Bearer 89b1b15281dd9bb1dfe94b2eee7c94dfa9ad1410");
+    	Header header = new Header("Authorization", token);
         List<Header> headerList = new ArrayList<>();
         headerList.add(header);
 

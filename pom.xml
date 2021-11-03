@@ -26,7 +26,7 @@
                                 <suiteXmlFile>testng-dev.xml</suiteXmlFile>
                             </suiteXmlFiles>
                             <parallel>methods</parallel>
-                            <threadCount>2</threadCount>
+                            <threadCount>6</threadCount>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -216,5 +216,13 @@
             <artifactId>extentreports</artifactId>
             <version>2.41.2</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.3.1</version>
+        </dependency>
+
     </dependencies>
 </project>
