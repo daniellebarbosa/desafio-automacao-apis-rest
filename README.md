@@ -8,7 +8,7 @@ Para conseguir executar os testes eu recomendo instalar o java, uma IDE de sua p
 
 Para o build utilize o maven.
 
-mvn clean test - P dev/hml (ambientes de teste)
+mvn clean test -P dev/hml (ambientes de teste)
 
 # Data-Driven
 
