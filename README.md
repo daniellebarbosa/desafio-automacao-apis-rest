@@ -22,7 +22,7 @@ O relatório está sendo gerado automaticamente após a execução, e pode ser a
 
 Os testes estão sendo divididos em duas threads, quantidade que pode ser alterada no pom.xml.
 
-# MongoDB
+# PostgreSQL
 
 Esta armazenando os bodys requests e os tokens de autenticação. 
 
