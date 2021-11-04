@@ -20,7 +20,7 @@ O relatório está sendo gerado automaticamente após a execução, e pode ser a
 
 # Threads 
 
-Os testes estão sendo divididos em duas threads, quantidade que pode ser alterada no pom.xml.
+Os testes estão sendo divididos em seis threads dentro do ambiente de dev, quantidade que pode ser alterada no pom.xml.
 
 # PostgreSQL
 
